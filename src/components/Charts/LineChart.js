@@ -35,7 +35,7 @@ function LineChart() {
   }, []);
 
   return (
-    <div className="w-3/4" >
+    <div className="w-full border border-gray-300 rounded text-gray-600" >
      <canvas ref={chartRef} />
 </div>
     
