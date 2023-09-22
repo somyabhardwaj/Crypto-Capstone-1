@@ -35,7 +35,7 @@ function LineChart() {
   }, []);
 
   return (
-    <div class="chart-container" style={{position:"relative", height:"40vh", width:"80vw"}}>
+    <div className="w-3/4" >
      <canvas ref={chartRef} />
 </div>
     
