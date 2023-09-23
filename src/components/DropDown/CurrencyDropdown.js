@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 function CurrencyDropdown() {
+  const [isRotated, setIsRotated] = useState(false);
+  const toggleRotation =()=>{
+    setIsRotated(!isRotated);
+  }
   return (
     <div className="relative inline-flex">
-      <select className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+      <select onClick={toggleRotation} className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         <option>USD</option>
         <option>INR</option>
       </select>
       <svg
-        className="w-4 h-3 absolute top-4 text-center right-3 pointer-events-none"
+        className={`w-4 h-3 absolute top-4 text-center right-3 pointer-events-none ${isRotated ? 'rotate-180' : ''} `}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 412 232"
       >
