@@ -1,9 +1,11 @@
 import React from 'react'
 import LineChart from '../Charts/LineChart'
 import CurrencyDropdown from '../DropDown/CurrencyDropdown'
-import Searchbar from '../DropDown/Searchbar/Searchbar'
+import Searchbar from '../Searchbar/Searchbar'
 import PieChart from '../Charts/PieChart'
 import TimeButtons from '../Timebuttons/TimeButtons'
+import CryptoCurrencyDropDown from '../DropDown/CryptoCurrencyDropDown'
+import ChatTypeDropDown from '../DropDown/ChatTypeDropDown'
 
 function Home() {
   return (
@@ -14,7 +16,11 @@ function Home() {
     <Searchbar />
     </div>   
     <div className=" w-8/12  ml-12 p-2 bg-gray-100">
-    <TimeButtons />
+    <div className="flex items-center">
+       <TimeButtons />
+       <CryptoCurrencyDropDown />
+       <ChatTypeDropDown />
+    </div>
     <LineChart />
     <PieChart />
     </div>
