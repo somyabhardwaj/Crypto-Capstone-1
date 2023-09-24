@@ -7,9 +7,11 @@ function CryptoCurrencyDropDown() {
   return (
     <>
         <div className="relative inline-flex">
-      <select  className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-        <option>USD</option>
+      <select  className=" border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+    
+        <option >USD</option>
         <option>INR</option>
+       
       </select>
       <svg
         className={` w-4 h-3 absolute top-4 text-center right-3 pointer-events-none `}
