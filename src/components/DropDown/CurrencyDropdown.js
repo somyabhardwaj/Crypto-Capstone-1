@@ -1,13 +1,14 @@
 import React from 'react'
 
 
-function CryptoCurrencyDropDown() {
+function CurrencyDropDown() {
 
   
   return (
     <>
         <div className="relative inline-flex">
       <select  className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+        <option>Currency</option>
         <option>USD</option>
         <option>INR</option>
       </select>
@@ -27,4 +28,4 @@ function CryptoCurrencyDropDown() {
   )
 }
 
-export default CryptoCurrencyDropDown
+export default CurrencyDropDown

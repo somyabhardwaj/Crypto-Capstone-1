@@ -15,7 +15,7 @@ function Home() {
     <div className=" flex justify-around w-full bg-gray-100 ">
     <div className="w-8/12">
     <div className="flex justify-around items-center mt-2 ">
-    <CryptoCurrencyDropDown />
+    <CurrencyDropdown />
     <Searchbar />
     </div>
     <div className="flex justify-around items-center mt-2">
@@ -24,14 +24,16 @@ function Home() {
     <ChatTypeDropDown />
     </div>
     
-    <div className="mt-2">
+    <div className="mt-2 ">
     <BarChart />
     </div>
     <div className="mt-2">
+    <div className="w-1/3">
     <PieChart />
     </div>
     </div>
-    <div className="w-1/4 px-4 bg-white border border-gray-300 rounded mt-2  overflow-scroll">
+    </div>
+    <div className="w-1/4 px-4  bg-white border border-gray-300 rounded mt-2  overflow-auto">
     <MarketCap />
     </div>
     </div>
