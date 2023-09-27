@@ -6,28 +6,30 @@ import PieChart from '../Charts/PieChart'
 import TimeButtons from '../Timebuttons/TimeButtons'
 import CryptoCurrencyDropDown from '../DropDown/CryptoCurrencyDropDown'
 import ChatTypeDropDown from '../DropDown/ChatTypeDropDown'
+import BarChart from '../Charts/BarChart'
+import MarketCap from '../Api/MarketCap.js'
 
 function Home() {
   return (
     <>
-      <div className="bg-gray-200">
-        <div className=" w-8/12 flex items-center ml-10 p-2 ">
-          <CurrencyDropdown />
-          <Searchbar />
-        </div>
-        <div className=" w-7/12  ml-24  bg-white border border-gray-300 rounded">
-          <div className="flex justify-between items-center">
-            <TimeButtons />
-            <div className="mx-2 items-center">
-              <CryptoCurrencyDropDown />
-              <ChatTypeDropDown />
-            </div>
-          </div>
-          <LineChart />
-
-        </div>
-        <PieChart />
-      </div>
+    <div className="flex justify-around w-full bg-gray-100 ">
+    <div className="w-7/12">
+    <div className="flex justify-around items-center mt-2 ml-4 ">
+    <CryptoCurrencyDropDown />
+    <Searchbar />
+    </div>
+    <div className="flex justify-around items-center mt-2">
+    <TimeButtons />
+    <CryptoCurrencyDropDown />
+    <ChatTypeDropDown />
+    </div>
+    <BarChart />
+    <PieChart />
+    </div>
+    <div className="bg-white border border-gray-300 rounded mt-2">
+    <MarketCap />
+    </div>
+    </div>
     </>
 
   )

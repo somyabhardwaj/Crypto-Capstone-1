@@ -58,7 +58,7 @@ function PieChart() {
   }, []);
 
   return (
-    <div className="mt-3 ml-12 w-1/2 border border-gray-300 bg-white rounded text-gray-600 p-2">
+    <div className=" border border-gray-300 bg-white rounded text-gray-600 p-2">
       <div className="flex justify-between">
         <h1 className="font-bold">Portfolio</h1>
         <p>Total Value <span className="font-bold">$1000</span></p>
