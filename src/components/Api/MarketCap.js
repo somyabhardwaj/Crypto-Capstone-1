@@ -36,7 +36,7 @@ function MarketCap() {
 
   return (
     <>
-    <div className=" absolute pt-3 pr-20 bg-white text-2xl ">
+    <div className=" absolute pt-3 pb-2 pr-20 bg-white text-2xl ">
       <h1 className='font-bold'>Crypto Market Cap</h1>
       </div>
     <div className="h-screen mt-16 pb-12">
@@ -58,7 +58,7 @@ function MarketCap() {
             </div>
             </div>
             <div  className="justify-end">
-             {coin.price_change_percentage_24h.toFixed(2)}
+             {coin.price_change_percentage_24h.toFixed(2)} %
 </div>
 
             </div>
