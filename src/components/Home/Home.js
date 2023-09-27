@@ -9,12 +9,12 @@ import ChatTypeDropDown from '../DropDown/ChatTypeDropDown'
 import BarChart from '../Charts/BarChart'
 import MarketCap from '../Api/MarketCap.js'
 import SellCurrency from '../DropDown/SellCurrency'
-import BuyCurrency from '../DropDown/BuyCurrency'
+
 
 function Home() {
   return (
     <>
-    <div className=" flex justify-around w-full bg-gray-100 ">
+    <div className=" flex justify-around w-full bg-gray-100 pb-2  ">
     <div className="w-8/12">
     <div className="flex justify-around items-center mt-2 ">
     <CurrencyDropdown />
@@ -35,7 +35,7 @@ function Home() {
     </div>
     <div className=''>
       <SellCurrency />
-      <BuyCurrency />
+      
     </div>
     </div>
     </div>
