@@ -12,9 +12,9 @@ import MarketCap from '../Api/MarketCap.js'
 function Home() {
   return (
     <>
-    <div className="flex justify-around w-full bg-gray-100 ">
-    <div className="w-7/12">
-    <div className="flex justify-around items-center mt-2 ml-4 ">
+    <div className=" flex justify-around w-full bg-gray-100 ">
+    <div className="w-8/12">
+    <div className="flex justify-around items-center mt-2 ">
     <CryptoCurrencyDropDown />
     <Searchbar />
     </div>
@@ -23,10 +23,15 @@ function Home() {
     <CryptoCurrencyDropDown />
     <ChatTypeDropDown />
     </div>
+    
+    <div className="mt-2">
     <BarChart />
+    </div>
+    <div className="mt-2">
     <PieChart />
     </div>
-    <div className="bg-white border border-gray-300 rounded mt-2">
+    </div>
+    <div className="w-1/4 px-4 bg-white border border-gray-300 rounded mt-2  overflow-scroll">
     <MarketCap />
     </div>
     </div>

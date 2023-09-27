@@ -10,7 +10,7 @@ function MarketCap() {
     async function fetchData() {
       try {
         const response = await fetch(
-          // "https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en"
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=100&page=1&sparkline=true&locale=en"
         );
 
         if (!response.ok) {
@@ -35,10 +35,12 @@ function MarketCap() {
 }
 
   return (
-    <div className="overflow-scroll">
-    <div className="absolute bg-gray-white text-2xl ">
+    <>
+    <div className=" absolute pt-3 pr-20 bg-white text-2xl ">
       <h1 className='font-bold'>Crypto Market Cap</h1>
       </div>
+    <div className="h-screen mt-12">
+    
       {loading ? (
         <p>Loading data...</p>
       ) : (
@@ -70,6 +72,7 @@ function MarketCap() {
         </ul>
       )}
     </div>
+    </>
   );
 }
 
