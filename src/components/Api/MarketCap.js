@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-  
+
 function MarketCap() {
 
   const [market, setMarket] = useState([]);
@@ -29,49 +29,50 @@ function MarketCap() {
     fetchData();
   }, []); // Empty dependency array to ensure this effect runs only once
 
-  const capitalize = (word)=>{
+  const capitalize = (word) => {
     const lower = word.toLowerCase();
     return lower.charAt(0).toUpperCase() + lower.slice(1);
-}
+  }
 
   return (
     <>
-    <div className=" absolute pt-3 pb-2 pr-20 bg-white text-2xl ">
-      <h1 className='font-bold'>Crypto Market Cap</h1>
+      <div className=" absolute pt-3 pb-2 pr-20 bg-white text-2xl ">
+        <h1 className='font-bold'>Crypto Market Cap</h1>
       </div>
-    <div className="h-screen mt-16 pb-12">
-    
-      {loading ? (
-        <p>Loading data...</p>
-      ) : (
-        <ul >
-          {market.map((coin) => (
-            <div>
-            <div className="flex items-center justify-between">
-            
-            <div className=' flex items-center '>
-            <div className="w-5 bg-gray-300 rounded-full">
-              <img src={coin.image} />
-            </div>
-            <div className="mx-2">
-            {capitalize(coin.id)}
-            </div>
-            </div>
-            <div  className="justify-end">
-             {coin.price_change_percentage_24h.toFixed(2)} %
+      <div className="h-screen mt-16 pb-12">
+
+        {loading ? (
+          <p>Loading data...</p>
+        ) : (
+          <ul >
+            {market.map((coin) => (
+
+              <div>
+                <div className="flex items-center justify-between">
+
+                  <div className=' flex items-center '>
+                    <div className="w-5 bg-gray-300 rounded-full">
+                      <img src={coin.image} />
+                    </div>
+                    <div className="mx-2">
+                      {capitalize(coin.id)}
+                    </div>
+                  </div>
+                  <div className={`text-sm text-${coin.price_change_percentage_24h < 0 ? 'red-500' : 'green-500'} `}>
+  {coin.price_change_percentage_24h.toFixed(2)}%
 </div>
 
-            </div>
-            <div className="text-sm text-slate-500 mx-7 mb-2">
-          
-            Mkt.Cap: $ {coin.market_cap.toLocaleString(2)}
-            </div>
-            </div>
-            
-          ))}
-        </ul>
-      )}
-    </div>
+                </div>
+                <div className="text-sm text-slate-500 mx-7 mb-2">
+
+                  Mkt.Cap: $ {coin.market_cap.toLocaleString(2)}
+                </div>
+              </div>
+
+            ))}
+          </ul>
+        )}
+      </div>
     </>
   );
 }

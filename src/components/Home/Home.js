@@ -8,7 +8,7 @@ import CryptoCurrencyDropDown from '../DropDown/CryptoCurrencyDropDown'
 import ChatTypeDropDown from '../DropDown/ChatTypeDropDown'
 import BarChart from '../Charts/BarChart'
 import MarketCap from '../Api/MarketCap.js'
-import SellCurrency from '../DropDown/SellCurrency'
+import SellOrBuyCurrency from '../DropDown/SellOrBuyCurrency'
 
 
 function Home() {
@@ -30,11 +30,11 @@ function Home() {
     <BarChart />
     </div>
     <div className="mt-2 flex justify-around items-center">
-    <div className="w-1/3">
+    <div className="w-2/5">
     <PieChart />
     </div>
-    <div className=''>
-      <SellCurrency />
+    <div className='bg-white border rounded '>
+      <SellOrBuyCurrency />
       
     </div>
     </div>
