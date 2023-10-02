@@ -3,12 +3,12 @@ import React from 'react'
 function SellCurrency() {
     return (
         <>
-        <div className="text-center p-1">
+        <div className=" ">
         <div>
-            <h1 className="font-bold text-xl p-2">Exchange Coins</h1>
+            <h1 className="font-bold text-gray-600 text-xl p-2">Exchange Coins</h1>
         </div>
         {/* sell Currency strarts here */}
-        <div className='flex justify-around items-center p-2'>
+        <div className='flex justify-around items-center p-3'>
         <div>
             <h1 className='font-bold text-orange-500 mx-4'>Sell</h1>
         </div>
@@ -38,11 +38,11 @@ function SellCurrency() {
 
             {/* Buy Currency starts here */}
 
-            <div className='flex justify-around items-center p-2'>
+            <div className='flex items-center p-1'>
         <div>
-            <h1 className='font-bold text-green-600 mx-4'>Buy</h1>
+            <h1 className='font-bold text-green-600 ml-9 '>Buy</h1>
         </div>
-            <div className="relative inline-flex">
+            <div className="relative inline-flex mx-4">
                 <select className=" border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
                     <option>Crypto Currency</option>
                     <option>USD</option>
@@ -61,11 +61,14 @@ function SellCurrency() {
                     />
                 </svg>
             </div>
-            <div>
-           <input className="border mx-4 p-1 rounded" type="text-box" placeholder="Enter Amount"></input>
+            <div className='ml-6'>
+           <p>Exchanged</p>
             </div>
             </div>
-            <button className="btn btn-primary m-2">Exchange</button>
+            {/* button start here  */}
+            <div className="text-center ">
+            <button className="btn btn-primary m-2 ">Exchange</button>
+            </div>
             </div>
         </>
     )

@@ -1,19 +1,38 @@
-import React from 'react'
+// import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { fetchMarket } from '../../slices/marketSlice';
+import fetchMarket from '../../api/MarketDataApi';
 
 
 function CryptoCurrencyDropDown() {
-
   
+  const market = useSelector((state) => state.marketData.marketData);
+
+ 
+
+  // Check if market is not an array or is empty
+  if (!Array.isArray(market) || market.length === 0) {
+    return (
+      <div className="relative inline-flex">
+        <select className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+          <option>Loading...</option>
+        </select>
+      </div>
+    );
+  }
+
   return (
-    <>
-        <div className="relative inline-flex">
-      <select  className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+    <div className="relative inline-flex">
+      <select className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         <option>Crypto Currency</option>
-        <option>USD</option>
-        <option>INR</option>
+        {market.map((currency) => (
+          <option key={currency.id} value={currency.id}>
+            {currency.name}
+          </option>
+        ))}
       </select>
       <svg
-        className={` w-4 h-3 absolute top-4 text-center right-3 pointer-events-none `}
+        className="w-4 h-3 absolute top-4 text-center right-3 pointer-events-none"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 412 232"
       >
@@ -24,8 +43,7 @@ function CryptoCurrencyDropDown() {
         />
       </svg>
     </div>
-    </>
-  )
+  );
 }
 
-export default CryptoCurrencyDropDown
+export default CryptoCurrencyDropDown;

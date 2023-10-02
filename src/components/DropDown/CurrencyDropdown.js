@@ -1,16 +1,37 @@
 import React from 'react'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import fetchMarket from '../../api/MarketDataApi';
 
 
 function CurrencyDropDown() {
+const dispatch = useDispatch();
 
+const market = useSelector((state)=>state.marketData.marketData)
+
+const status = useSelector((state)=>state.marketData.status)
+
+console.log({status});
+
+useEffect(()=>{
+
+  if(status!== 'loading'){
+  dispatch(fetchMarket());
+  }
+},[dispatch]);
   
   return (
     <>
         <div className="relative inline-flex">
       <select  className="border border-gray-300 rounded text-gray-600 h-9 pl-4 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-        <option>Currency</option>
-        <option>USD</option>
-        <option>INR</option>
+           <option className="text-justify rounded">USD</option>       
+        {market.map((currency)=>(
+          
+          <option className="text-justify rounded">{currency.symbol.toUpperCase()}</option>
+        )
+
+        )}
+        
       </select>
       <svg
         className={` w-4 h-3 absolute top-4 text-center right-3 pointer-events-none `}

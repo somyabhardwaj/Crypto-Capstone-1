@@ -60,7 +60,7 @@ function PieChart() {
   return (
     <div className=" border border-gray-300 bg-white rounded text-gray-600 p-2">
       <div className="flex justify-between">
-        <h1 className="font-bold">Portfolio</h1>
+        <h1 className="font-bold text-xl">Portfolio</h1>
         <p>Total Value <span className="font-bold">$1000</span></p>
       </div>
       <canvas className="p-1 m-2" ref={chartRef} /> {/* Render the chart canvas */}
