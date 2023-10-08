@@ -1,40 +1,41 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import fetchMarket from '../../api/MarketDataApi';
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrency } from '../../slices/CurrencySlice';
+import fetchCurrencyDrop from '../../slices/api/GetCurrencyApi';
 
 function CurrencyDropDown() {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const market = useSelector((state) => state.currencyDrop);
 
-const market = useSelector((state)=>state.marketData.marketData)
-
-const status = useSelector((state)=>state.marketData.status)
-
-console.log({status});
-
-useEffect(()=>{
-
-  if(status!== 'loading'){
-  dispatch(fetchMarket());
-  }
-},[dispatch]);
   
-  return (
-    <>
-        <div className="relative inline-flex">
-      <select  className="border border-gray-300 rounded text-gray-600 h-9 pl-4 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-           <option className="text-justify rounded">USD</option>       
-        {market.map((currency)=>(
-          
-          <option className="text-justify rounded">{currency.symbol.toUpperCase()}</option>
-        )
 
+  useEffect(() => {
+    dispatch(fetchCurrencyDrop());
+  }, [dispatch]);
+
+  const handleOnChange = (e) => {
+    dispatch(setCurrency(e.target.value));
+  };
+
+  return (
+    <div className="relative inline-flex">
+      <select
+        onChange={handleOnChange}
+        className="border border-gray-300 rounded text-gray-600 h-9 pl-4 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+      >
+        <option>USD</option>
+        {Array.isArray(market) ? (
+          market.map((currency) => (
+            <option key={currency} value={currency}>
+              {currency.toUpperCase()}
+            </option>
+          ))
+        ) : (
+          <option>Loading...</option>
         )}
-        
       </select>
       <svg
-        className={` w-4 h-3 absolute top-4 text-center right-3 pointer-events-none `}
+        className={`w-4 h-3 absolute top-4 text-center right-3 pointer-events-none`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 412 232"
       >
@@ -45,8 +46,7 @@ useEffect(()=>{
         />
       </svg>
     </div>
-    </>
-  )
+  );
 }
 
-export default CurrencyDropDown
+export default CurrencyDropDown;

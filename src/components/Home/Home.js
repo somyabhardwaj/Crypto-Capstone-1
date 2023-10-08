@@ -4,14 +4,15 @@ import CurrencyDropdown from '../DropDown/CurrencyDropdown'
 import Searchbar from '../Searchbar/Searchbar'
 import PieChart from '../Charts/PieChart'
 import TimeButtons from '../Timebuttons/TimeButtons'
-import CryptoCurrencyDropDown from '../DropDown/CryptoCurrencyDropDown'
+import CoinDropdown from '../DropDown/CoinDropdown'
 import ChatTypeDropDown from '../DropDown/ChatTypeDropDown'
-import BarChart from '../Charts/BarChart'
+import VerticalBarChart from '../Charts/VerticalBarChart'
 import MarketCap from '../MarketUpdateCard/MarketCap.js'
 import SellOrBuyCurrency from '../DropDown/SellOrBuyCurrency'
-
+import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 function Home() {
+  const chartType = useSelector((state) => state.setChart);
   return (
     <>
       <div className=" flex justify-around w-full bg-gray-100 pb-2  ">
@@ -22,12 +23,12 @@ function Home() {
           </div>
           <div className="flex justify-around items-center mt-2">
             <TimeButtons />
-            <CryptoCurrencyDropDown />
+            <CoinDropdown />
             <ChatTypeDropDown />
           </div>
 
           <div className="mt-2 ">
-            <BarChart />
+          {chartType === 'LineChart' ? <LineChart /> : <VerticalBarChart />}
           </div>
           <div className="mt-3  flex justify-around items-center">
             <div className="w-2/5">

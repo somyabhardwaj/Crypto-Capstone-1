@@ -40,17 +40,24 @@ function BarChart() {
     const mychartRef = chartRef.current.getContext('2d');
 
     ChartInstance.current = new Chart(mychartRef, {
-      type: 'line',
+      type: 'bar',
       data: {
         labels: chartData.label, // Use Redux state for labels
-        datasets: [{
-          label: `${setCoin} Vs ${setCurrency} `,
-          data: chartData.data,
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }]
-       
+        datasets: [
+          {
+            borderColor:['rgba(79, 121, 66, 1)'],
+            barPercentage: 1.0,
+            barThickness: 2,
+            maxBarThickness: 5,
+            minBarLength: 4,
+            label: `${setCoin} Vs ${setCurrency} `,
+            data: chartData.data, // Use Redux state for data
+            backgroundColor: ['rgb(124, 252, 0)','rgb(236, 255, 220)'],
+            
+
+
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -65,11 +72,10 @@ function BarChart() {
           },
           title: {
             display: true,
-            text: 'Line Chart',
+            text: 'Vertical Bar Chart',
           },
         },
       },
-      
     });
   }, [chartData]);
 

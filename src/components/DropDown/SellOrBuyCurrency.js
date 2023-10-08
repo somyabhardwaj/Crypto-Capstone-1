@@ -1,6 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 function SellCurrency() {
+    const getCoin =useSelector((state)=> state.marketData.marketData)    
+    const market = useSelector((state) => state.currencyDrop);
+   
+
     return (
         <>
         <div className=" ">
@@ -14,9 +19,16 @@ function SellCurrency() {
         </div>
             <div className="relative inline-flex">
                 <select className=" border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-                    <option>Crypto Currency</option>
-                    <option>USD</option>
-                    <option>INR</option>
+                    <option>Select Currency</option>
+                    {Array.isArray(market) ? (
+          market.map((currency) => (
+            <option key={currency} value={currency}>
+              {currency.toUpperCase()}
+            </option>
+          ))
+        ) : (
+          <option>Loading...</option>
+        )}
 
                 </select>
                 <svg
@@ -44,9 +56,12 @@ function SellCurrency() {
         </div>
             <div className="relative inline-flex mx-4">
                 <select className=" border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-                    <option>Crypto Currency</option>
-                    <option>USD</option>
-                    <option>INR</option>
+                    <option>Select Coin</option>
+                    {getCoin.map((coin) => (
+          <option key={coin.id} value={coin.id}>
+            {coin.name}
+          </option>
+          ))}
 
                 </select>
                 <svg

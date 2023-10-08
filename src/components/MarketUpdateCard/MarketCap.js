@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import fetchMarket from "../../api/MarketDataApi";
-
-
+import fetchMarket from '../../slices/api/MarketDataApi';
 
 function MarketCap() {
   const dispatch = useDispatch();
   const market = useSelector((state) => state.marketData.marketData);
-const status = useSelector((state) => state.marketData.status);
-
+  const status = useSelector((state) => state.marketData.status);
 
   useEffect(() => {
-    //if (status !== "loading") { // Change this condition
+    if (status !== 'loading') {
       dispatch(fetchMarket());
-    //}
-  }, []);
+    }
+  }, [dispatch]);
 
   const capitalize = (word) => {
     const lower = word.toLowerCase();
@@ -39,7 +36,7 @@ const status = useSelector((state) => state.marketData.status);
                     {capitalize(coin.id)}
                   </div>
                 </div>
-                <div className={`text-sm text-${coin.price_change_percentage_24h < 0 ? 'red-500' : 'green-500'}`}>
+                <div className={`text-sm ${coin.price_change_percentage_24h < 0 ? 'text-red-500' : 'text-green-500'}`}>
                   {coin.price_change_percentage_24h.toFixed(2)}%
                 </div>
               </div>

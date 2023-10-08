@@ -2,22 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const timeSlice = createSlice({
 
-    name:'timeButton',
-    initialState:{
-        time:10
+    name: 'timeButton',
+    initialState: {
+        time: 180
     },
-    reducers:{
-         timeButton:(state,action)=>{
-           
-            return state.time = action.payload;
-            
-
-         }
-
-
+    reducers: {
+        setTime: (state, action) => {
+            state.time = action.payload;
+        }
     }
-
 })
 
-export const {timeButton} = timeSlice.actions ;
+export const { setTime } = timeSlice.actions;
 export default timeSlice.reducer;

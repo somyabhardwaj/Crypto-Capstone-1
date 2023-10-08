@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import fetchMarket from "../api/MarketDataApi";
+import fetchMarket from "./api/MarketDataApi";
 
 const marketDataSlice = createSlice(
     {
@@ -18,8 +18,6 @@ const marketDataSlice = createSlice(
                  
             })
             .addCase(fetchMarket.fulfilled, (state, action)=>{
-                state.status = 'success';
-                console.log("action..payload", action.payload);
                 state.marketData = action.payload;
             }
             )
