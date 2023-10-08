@@ -2,10 +2,10 @@ import React from 'react';
 
 function Searchbar() {
   return (
-    <div className="relative w-10/12">
+    <div className="relative w-full">
       <input
         type="search"
-        className=" block w-full rounded border border-solid border-neutral-300 bg-white bg-clip-padding px-8 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+        className=" block w-full rounded border  border-neutral-300 bg-white bg-clip-padding px-8 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
         id="exampleSearch"
         placeholder="   Search By Coin"
       />

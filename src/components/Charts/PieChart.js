@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Chart from 'chart.js/auto';
+import 'chartjs-plugin-datalabels';
 
 function PieChart() {
   // Create a reference for the chart canvas element
@@ -24,13 +25,12 @@ function PieChart() {
 
       // Data for the chart
       data: {
-        labels: ['Red', 'Blue', 'Yellow'], // Labels for the segments
+        labels: ['Bitcoin', 'Ethereum', 'Theter'], // Labels for the segments
         datasets: [
           {
             label: 'My First Dataset', // Dataset label
-            data: [150, 150, 150], // Data values for the segments
+            data: [250, 100, 150], // Data values for the segments
             backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'], // Background colors for the segments
-            hoverOffset: 4, // Offset when hovering over a segment
           },
         ],
       },
@@ -43,6 +43,12 @@ function PieChart() {
             labels: {
               usePointStyle: true, // Show legend colors as circles
             },
+          },
+          datalabels: { // Configure the datalabels plugin
+            color: '#fff', // Font color for the data labels
+            anchor: 'end', // Position of the data labels inside the segments (end of the segment)
+            align: 'start', // Alignment of the data labels inside the segments (start of the segment)
+            formatter: (value) => `$${value}`, // Format the labels as "$250," "$100," "$150"
           },
         },
         aspectRatio: 1.8, // Disable maintaining aspect ratio

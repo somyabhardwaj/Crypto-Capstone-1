@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 function SellCurrency() {
-  const market = useSelector((state) => state.currencyDrop);
-
+  const Currency = useSelector((state) => state.currencyDrop);
+  const Market = useSelector((state) => state.marketData.marketData);
   return (
     <>
       <div className="text-center">
@@ -18,9 +18,9 @@ function SellCurrency() {
           <div className="relative inline-flex">
             <select className="border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
               <option>Currency</option>
-              {Array.isArray(market) ? (
-                market.map((currency) => (
-                  <option key={currency} value={currency}>
+              {Array.isArray(Currency) ? (
+                Currency.map((currency) => (
+                  <option key={Currency} value={Currency}>
                     {currency.toUpperCase()}
                   </option>
                 ))
@@ -53,13 +53,14 @@ function SellCurrency() {
           </div>
           <div className="relative inline-flex">
             <select className="border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
-              <option>Currency</option>
-              {Array.isArray(market) ? (
-                market.map((currency) => (
-                  <option key={currency} value={currency}>
-                    {currency.toUpperCase()}
-                  </option>
-                ))
+              <option>Coins</option>
+              {Array.isArray(Currency) ? (
+                Market.map((Coin) => (
+          <option key={Coin.id} value={Coin.id}>
+            {Coin.name}
+          </option>
+        ))
+                
               ) : (
                 <option>Loading...</option>
               )}

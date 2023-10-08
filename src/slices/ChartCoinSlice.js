@@ -7,8 +7,6 @@ const ChartCoinSlice = createSlice({
     reducers:{
         setCoin:(state, action)=>{
             
-            console.log("Coin action is set to",action);
-            console.log("Coin reducer is set to",action.payload);
        return action.payload;
       
         }

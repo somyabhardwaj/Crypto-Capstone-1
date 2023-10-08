@@ -6,14 +6,14 @@ import { setCoin } from '../../slices/ChartCoinSlice';
 
 function CoinDropDown() {
   const dispatch=useDispatch();
-  const market = useSelector((state) => state.marketData.marketData);
+  const Market = useSelector((state) => state.marketData.marketData);
 
   const handelOnChange = (e)=>{
-    console.log("Coin  is set to",e.target.value);
+    
     dispatch(setCoin(e.target.value))  
   } 
   // Check if market is not an array or is empty
-  if (!Array.isArray(market) || market.length === 0){
+  if (!Array.isArray(Market) || Market.length === 0){
     return (
       <div className="relative inline-flex">
         <select  className="border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-4 mx-1 bg-white hover:border-gray-400 focus:outline-none appearance-none">
@@ -25,11 +25,11 @@ function CoinDropDown() {
 
   return (
     <div className="relative inline-flex">
-      <select onChange={handelOnChange} className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+      <select onChange={handelOnChange} className="border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-2 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         <option>Bitcoin</option>
-        {market.map((currency) => (
-          <option key={currency.id} value={currency.id}>
-            {currency.name}
+        {Market.map((Coin) => (
+          <option key={Coin.id} value={Coin.id}>
+            {Coin.name}
           </option>
         ))}
       </select>
