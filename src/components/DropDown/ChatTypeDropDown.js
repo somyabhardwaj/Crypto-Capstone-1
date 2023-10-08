@@ -17,7 +17,7 @@ function CryptoCurrencyDropDown() {
       <select
         value={chartType}
         onChange={handleOnChange} 
-        className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+        className="border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-4 bg-white hover:border-gray-400 focus:outline-none appearance-none"
       >
         <option value="VerticalBarChart">Vertical BarChart</option>
         <option value="HorizontalBarChart">Horizontal BarChart</option> {/* Corrected the spelling */}

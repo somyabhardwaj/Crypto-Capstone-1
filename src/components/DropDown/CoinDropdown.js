@@ -16,7 +16,7 @@ function CoinDropDown() {
   if (!Array.isArray(market) || market.length === 0){
     return (
       <div className="relative inline-flex">
-        <select  className="border border-gray-300 rounded text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+        <select  className="border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-4 mx-1 bg-white hover:border-gray-400 focus:outline-none appearance-none">
           <option>Loading...</option>
         </select>
       </div>

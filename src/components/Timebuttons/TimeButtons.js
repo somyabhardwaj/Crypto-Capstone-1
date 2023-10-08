@@ -11,7 +11,7 @@ function TimeButtons() {
   
   return (
     <div>
-       <div className="flex items-center ml-40">
+       <div className="ml-4 flex items-center ">
         <button onClick={handelOnClick} value={1} className="focus:outline-none focus:ring focus:ring-blue flex items-center focus w-10 border border-gray-300 rounded bg-white text-gray-600 h-8 m-2 p-2" >1D</button>
         <button onClick={handelOnClick} value={7} className="focus:outline-none focus:ring focus:ring-blue flex items-center w-10 border border-gray-300 rounded bg-white text-gray-600 h-8 m-2 p-2 " >1W</button>
         <button onClick={handelOnClick} value={14} className="focus:outline-none focus:ring focus:ring-blue flex items-center w-10 border border-gray-300 rounded bg-white text-gray-600 h-8 m-2 p-2 " >2W</button>

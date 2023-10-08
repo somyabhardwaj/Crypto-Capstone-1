@@ -18,7 +18,7 @@ function CurrencyDropDown() {
   };
 
   return (
-    <div className="relative inline-flex">
+    <div className="relative inline-flex overflow-scrol">
       <select
         onChange={handleOnChange}
         className="border border-gray-300 rounded text-gray-600 h-9 pl-4 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"

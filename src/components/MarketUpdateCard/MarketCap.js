@@ -20,10 +20,10 @@ function MarketCap() {
 
   return (
     <>
-      <div className="absolute pt-3 pb-2 pr-20 bg-white text-2xl">
+      <div className="bg-white text-2xl">
         <h1 className='font-bold'>Crypto Market Cap</h1>
       </div>
-      <div className="h-screen mt-16 pb-12">
+      <div className="h-screen mt-4 pb-12">
         <ul>
           {market.map((coin) => (
             <div key={coin.id}>

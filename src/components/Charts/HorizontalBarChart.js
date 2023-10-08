@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchChart } from '../../slices/ChartDataSlice'; // Import the async thunk for fetching data
 
-function VerticalBarChart() {
+function HorizontalBarChart() {
   const chartRef = useRef(null);
   const ChartInstance = useRef(null);
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function VerticalBarChart() {
             minBarLength: 4,
             label: `${setCoin} Vs ${setCurrency} `,
             data: chartData.data, // Use Redux state for data
-            backgroundColor: ['rgb(124, 252, 0)',],
+            backgroundColor: ['rgb(124, 252, 0)'],
             
 
 
@@ -60,21 +60,30 @@ function VerticalBarChart() {
         ],
       },
       options: {
+        indexAxis: 'y',
+        // Elements options apply to all of the options unless overridden in a dataset
+        // In this case, we are setting the border of each horizontal bar to be 2px wide
+        elements: {
+          bar: {
+            borderWidth: 2,
+          }
+        },
         responsive: true,
         plugins: {
-          legend: {
-            align: 'end',
-
-            labels: {
-              usePointStyle: true,
-            },
-            position: 'top',
-          },
+            legend: {
+                align: 'end',
+    
+                labels: {
+                  usePointStyle: true,
+                },
+                position: 'top',
+              },
+          position: 'top',
           title: {
             display: true,
-            text: 'Vertical Bar Chart',
-          },
-        },
+            text: 'Horizontal Bar Chart'
+          }
+        }
       },
     });
   }, [chartData]);
@@ -86,4 +95,4 @@ function VerticalBarChart() {
   );
 }
 
-export default VerticalBarChart;
+export default HorizontalBarChart;
