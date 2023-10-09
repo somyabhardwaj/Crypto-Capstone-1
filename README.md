@@ -71,6 +71,10 @@ Screenshot 1
 
 Screenshot 2
 
+## Netlify App Link
+
+crypto-app-somya-bhardwaj.netlify.app.com
+
 ## Contributing
 Contributions to this project are welcome! To contribute:
 

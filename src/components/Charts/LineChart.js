@@ -65,7 +65,7 @@ function LineChart() {
   }, [chartData]);
 
   return (
-    <div className="bg-white border border-gray-300 rounded text-gray-600">
+    <div className=" bg-white border border-gray-300 rounded text-gray-600">
       <canvas ref={chartRef} /> {/* Render the chart canvas */}
     </div>
   );

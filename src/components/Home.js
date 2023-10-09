@@ -71,7 +71,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="m-2 ">
+              <div className="m-2  ">
                 {/* Render the selected chart type */}
                 {chartType === 'VerticalBarChart' && <VerticalBarChart />}
                 {chartType === 'LineChart' && <LineChart />}
