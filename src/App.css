@@ -5,26 +5,6 @@
 .MarketCap {
     overflow: scroll;
   }
-  .MarketCap::-webkit-scrollbar{
-    width:0;
-   
-  }
+
   
-  /* Style for the scrollbar track */
-  .MarketCap::-webkit-scrollbar-track {
-    background-color: blue;
-  }
-  
-  /* Style for the scrollbar thumb (the draggable part) */
-  .MarketCap::-webkit-scrollbar-thumb {
-    background-color: red;
-  }
-  
-  /* Style for the bottom scrollbar button */
-  .MarketCap::-webkit-scrollbar-button:end {
-    display: none;
-    background-color: green; 
-    width:0;/* Change to your desired color */
-    /* You can add more styles here for the bottom scrollbar button */
-  }
   
