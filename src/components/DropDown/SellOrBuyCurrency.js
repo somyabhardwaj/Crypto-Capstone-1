@@ -20,7 +20,7 @@ function SellCurrency() {
               <option>Currency</option>
               {Array.isArray(Currency) ? (
                 Currency.map((currency) => (
-                  <option key={Currency} value={Currency}>
+                  <option key={currency} value={Currency}>
                     {currency.toUpperCase()}
                   </option>
                 ))
@@ -54,7 +54,7 @@ function SellCurrency() {
           <div className="relative inline-flex">
             <select className="border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
               <option>Coins</option>
-              {Array.isArray(Currency) ? (
+              {Array.isArray(Market) ? (
                 Market.map((Coin) => (
           <option key={Coin.id} value={Coin.id}>
             {Coin.name}

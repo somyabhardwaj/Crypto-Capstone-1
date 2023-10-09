@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const ChartOptionSlice = createSlice({
 
     name:"ChartOption",
-    initialState:"VerticalBarChart",
+    initialState:"LineChart",
     reducers:{
         setChart:(state , action)=>{
              return action.payload

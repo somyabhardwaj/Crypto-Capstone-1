@@ -91,7 +91,7 @@ function Home() {
 
             </div>
           </div>
-          <div style={currentStyles} className="md:m-2 bg-white mx-2 p-4 -s overflow-auto border border-black rounded rounded-sm">
+          <div style={currentStyles} className="md:m-2 bg-white mx-2 p-4 scrollbar-none overflow-auto border border-black rounded rounded-sm">
             <MarketCap />
           </div>
         </div>
