@@ -2,6 +2,11 @@
 
 ![Crypto Currency Dashboard](dashboard-screenshot.png)
 
+## Netlify App Link
+
+(https://crypto-app-somya-bhardwaj.netlify.app.com)
+
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -70,10 +75,6 @@ Screenshot 1
 
 
 Screenshot 2
-
-## Netlify App Link
-
-crypto-app-somya-bhardwaj.netlify.app.com
 
 ## Contributing
 Contributions to this project are welcome! To contribute:
