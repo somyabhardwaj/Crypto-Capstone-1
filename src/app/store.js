@@ -7,6 +7,7 @@ import currencyReducer from "../slices/CurrencySlice";
 import ChartCoinReducer from "../slices/ChartCoinSlice";
 import CurrencyDropDownReducer from "../slices/CurrencyDropdownSlice";
 import ChartOptionReducer from "../slices/ChartOptionSlices";
+import CoinExchangeReducer from "../slices/CoinExchangeSlice";
 const store = configureStore({
   reducer: {
     chartData:ChartDataReducer,
@@ -16,6 +17,7 @@ const store = configureStore({
     marketData:marketDataReducer,
     currencyDrop:CurrencyDropDownReducer,
     setChart:ChartOptionReducer,
+    ExchangeRates:CoinExchangeReducer,
 
   },
 });
