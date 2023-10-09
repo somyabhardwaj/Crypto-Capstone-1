@@ -24,8 +24,8 @@ function CoinDropDown() {
   }
 
   return (
-    <div className="relative inline-flex">
-      <select onChange={handelOnChange} className="border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-2 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+    <div className="relative inline-flex ">
+      <select onChange={handelOnChange} className="scrollbar-none border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-2 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         <option>Bitcoin</option>
         {Market.map((Coin) => (
           <option key={Coin.id} value={Coin.id}>

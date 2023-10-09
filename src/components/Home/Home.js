@@ -96,7 +96,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <footer className="bg-gray-200 h-10 w-full">
+      <footer className="bg-gray-200 h-5 w-full">
 
       </footer>
     </>

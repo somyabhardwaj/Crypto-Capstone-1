@@ -20,7 +20,7 @@ function MarketCap() {
 
   return (
     <>
-    <div>    
+    <div className="md:w-80 lg:w-80">    
       <div className=" bg-white text-2xl">
         <h1 className='font-bold text-gray-600'>Crypto Market Cap</h1>
       </div>

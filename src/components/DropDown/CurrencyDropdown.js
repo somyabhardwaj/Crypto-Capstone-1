@@ -18,10 +18,10 @@ function CurrencyDropDown() {
   };
 
   return (
-    <div className="relative inline-flex overflow-scrol">
+    <div className="relative inline-flex ov">
       <select
         onChange={handleOnChange}
-        className="border border-gray-300 rounded text-gray-600 mx-2 h-9 pl-3 pr-8 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+        className="scrollbar-none border border-gray-300 rounded text-gray-600 lg:mx-0 md:mx-0  h-9 pl-3 pr-8 bg-white hover:border-gray-400 focus:outline-none appearance-none"
       >
         <option>USD</option>
         {Array.isArray(market) ? (

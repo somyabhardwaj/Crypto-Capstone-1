@@ -16,7 +16,7 @@ function SellCurrency() {
             <h1 className="font-bold text-orange-500 mx-2">Sell</h1>
           </div>
           <div className="relative inline-flex">
-            <select className="border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+            <select className="scrollbar-none border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
               <option>Currency</option>
               {Array.isArray(Currency) ? (
                 Currency.map((currency) => (
@@ -52,7 +52,7 @@ function SellCurrency() {
             <h1 className="font-bold text-green-600 mx-2">Buy</h1>
           </div>
           <div className="relative inline-flex">
-            <select className="border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+            <select className="scrollbar-none border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none">
               <option>Coins</option>
               {Array.isArray(Market) ? (
                 Market.map((Coin) => (
