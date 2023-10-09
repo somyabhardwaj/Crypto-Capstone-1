@@ -5,26 +5,31 @@ import fetchCurrencyDrop from '../../slices/api/GetCurrencyApi';
 
 function CurrencyDropDown() {
   const dispatch = useDispatch();
+
+  // Fetch currency data from Redux state
   const market = useSelector((state) => state.currencyDrop);
 
-  
-
+  // Fetch currency data when the component mounts
   useEffect(() => {
     dispatch(fetchCurrencyDrop());
   }, [dispatch]);
 
+  // Handle the change event when a currency is selected from the dropdown
   const handleOnChange = (e) => {
     dispatch(setCurrency(e.target.value));
   };
 
   return (
     <div className="relative inline-flex ov">
+      {/* Dropdown for selecting currencies */}
       <select
         onChange={handleOnChange}
         className="scrollbar-none border border-gray-300 rounded text-gray-600 lg:mx-0 md:mx-0  h-9 pl-3 pr-8 bg-white hover:border-gray-400 focus:outline-none appearance-none"
       >
         <option>USD</option>
+        {/* Check if currency data is an array */}
         {Array.isArray(market) ? (
+          // Map through currency data to populate currency options
           market.map((currency) => (
             <option key={currency} value={currency}>
               {currency.toUpperCase()}
@@ -34,6 +39,7 @@ function CurrencyDropDown() {
           <option>Loading...</option>
         )}
       </select>
+      {/* Dropdown arrow icon */}
       <svg
         className={`w-4 h-3 absolute top-4 text-center right-3 pointer-events-none`}
         xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,5 @@
 import React from 'react';
-import almalogo from '../Images/almalogo.png'
+import almalogo from '../components/Images/almalogo.png'
 function Navbar() {
   return (
     <>

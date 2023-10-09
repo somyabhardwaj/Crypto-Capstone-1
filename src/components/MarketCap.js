@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import fetchMarket from '../../slices/api/MarketDataApi';
+import fetchMarket from '../slices/api/MarketDataApi';
 
 function MarketCap() {
   const dispatch = useDispatch();
   const market = useSelector((state) => state.marketData.marketData);
   const status = useSelector((state) => state.marketData.status);
 
+  // Fetch market data when the component mounts or when the status is not 'loading'
   useEffect(() => {
     if (status !== 'loading') {
       dispatch(fetchMarket());
     }
   }, [dispatch]);
 
+  // Function to capitalize the first letter of a word
   const capitalize = (word) => {
     const lower = word.toLowerCase();
     return lower.charAt(0).toUpperCase() + lower.slice(1);
@@ -26,6 +28,7 @@ function MarketCap() {
       </div>
       <div className=" mt-4 pb-12">
         <ul>
+          {/* Loop through market data and render each coin */}
           {market.map((coin) => (
             <div key={coin.id}>
               <div className="flex items-center justify-between">
@@ -49,7 +52,6 @@ function MarketCap() {
         </ul>
       </div>
       </div>
-
     </>
   );
 }

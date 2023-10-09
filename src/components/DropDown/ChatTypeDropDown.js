@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { setChart } from '../../slices/ChartOptionSlices';
 import { useDispatch } from 'react-redux';
@@ -6,22 +5,25 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 function CryptoCurrencyDropDown() {
   const dispatch = useDispatch();
+
+  // Fetch the current chart type from Redux state
   const chartType = useSelector((state) => state.ChartOption);
 
+  // Function to handle the dropdown selection change
   const handleOnChange = (e) => {
-    dispatch(setChart(e.target.value));
+    dispatch(setChart(e.target.value)); // Dispatch the selected chart type to Redux
   }
 
   return (
-    <div className="relative inline-flex lg:mx-6 md:mx-4 ">
+    <div className="relative inline-flex lg:mx-6 md:mx-4">
       <select
         value={chartType}
         onChange={handleOnChange} 
-        className=" border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-4 bg-white hover:border-gray-400 focus:outline-none appearance-none"
+        className="border border-gray-300 rounded text-gray-600 h-10 pl-2 pr-4 bg-white hover:border-gray-400 focus:outline-none appearance-none"
       >
-        <option value="VerticalBarChart">Vertical BarChart</option>
-        <option value="HorizontalBarChart">Horizontal BarChart</option> {/* Corrected the spelling */}
         <option value="LineChart">LineChart</option>
+        <option value="HorizontalBarChart">Horizontal BarChart</option>
+        <option value="VerticalBarChart">Vertical BarChart</option>
       </select>
       <svg
         className="w-4 h-3 absolute top-4 text-center right-3 pointer-events-none"
@@ -39,4 +41,3 @@ function CryptoCurrencyDropDown() {
 }
 
 export default CryptoCurrencyDropDown;
-

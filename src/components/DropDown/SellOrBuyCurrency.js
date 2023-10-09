@@ -4,59 +4,47 @@ import fetchExchangeRates from '../../slices/api/ExchangeRatesApi';
 
 function SellCurrency() {
   const dispatch = useDispatch();
+
+  // Fetch market data and exchange rates from Redux state
   const marketData = useSelector((state) => state.marketData.marketData);
   const exchangeData = useSelector((state) => state.ExchangeRates.rates);
 
+  // State variables for selected coins, amount, exchange result, and error handling
   const [sellCoin, setSellCoin] = useState(''); // Selected coin for selling
-
-  console.log("sellCoin",sellCoin)
   const [sellAmount, setSellAmount] = useState(''); // Amount to sell
-  
-  console.log("sellAmount",sellAmount)
   const [buyCoin, setBuyCoin] = useState(''); // Selected coin for buying
-  
-  console.log("buyCoin",buyCoin)
   const [exchangeResult, setExchangeResult] = useState('');
-  console.log("exchangeResult",exchangeResult)
-
   const [error, setError] = useState('');
 
+  // Fetch exchange rates when the component mounts
   useEffect(() => {
     dispatch(fetchExchangeRates());
   }, [dispatch]);
 
+  // Handle the exchange process
   const handleExchange = () => {
     setError(''); // Clear any previous error message
 
+    // Validate input
     if (!sellCoin || !buyCoin || !sellAmount || isNaN(sellAmount)) {
       setError('Invalid input');
       setExchangeResult('');
       return;
     }
 
-    console.log("exchangeData.rates[sellCoin]", exchangeData.rates[sellCoin]);
-    console.log("exchangeData.rates[buyCoin] ", exchangeData.rates[buyCoin]);
-    // Check if sellCoin and buyCoin are valid currencies
+    // Check if selected coins are valid currencies
     if (!exchangeData.rates[sellCoin] || !exchangeData.rates[buyCoin]) {
       setError('Invalid currency selection');
       setExchangeResult('');
       return;
     }
 
+    // Calculate the exchanged amount
     const sellValue = exchangeData.rates[sellCoin].value;
     const buyValue = exchangeData.rates[buyCoin].value;
-
-    console.log("sellValue", sellValue);
-    console.log("buyValue ", buyValue);
-    console.log("sellAmount ", sellAmount);
-    console.log("sellValue ", sellValue);
-    
-
     const exchangedAmount = (sellAmount * sellValue) / buyValue;
-      
-    console.log("exchangedAmount ", exchangedAmount);
 
-
+    // Display the result
     setExchangeResult(`${sellAmount} ${sellCoin} = ${exchangedAmount.toFixed(2)} ${buyCoin}`);
   };
 
@@ -67,9 +55,11 @@ function SellCurrency() {
       </div>
       {/* Sell Currency section */}
       <div className="flex justify-around items-center p-3">
+        {/* Labels */}
         <div>
           <h1 className="font-bold text-orange-500 mx-2">Sell</h1>
         </div>
+        {/* Dropdown for selecting the coin to sell */}
         <div className="relative inline-flex">
           <select
             className="scrollbar-none border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none"
@@ -83,7 +73,9 @@ function SellCurrency() {
               </option>
             ))}
           </select>
+         
         </div>
+        {/* Input for entering the amount to sell */}
         <div>
           <input
             className="w-20 mx-4 p-1 border rounded"
@@ -97,9 +89,11 @@ function SellCurrency() {
 
       {/* Buy Currency section */}
       <div className="flex justify-around items-center p-3">
+        {/* Labels */}
         <div>
           <h1 className="font-bold text-green-600 mx-2">Buy</h1>
         </div>
+        {/* Dropdown for selecting the coin to buy */}
         <div className="relative inline-flex">
           <select
             className="scrollbar-none border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28 bg-white hover:border-gray-400 focus:outline-none appearance-none"
@@ -114,10 +108,12 @@ function SellCurrency() {
             ))}
           </select>
         </div>
+        {/* Display the exchange result */}
         <div>
           <p className="w-20 mx-4 p-1 border rounded">exchange</p>
         </div>
       </div>
+      {/* Button for initiating the exchange */}
       <div>
         <button
           className="font-bold text-white bg-blue-700 p-2 m-2 border rounded rounded-sm border-black"

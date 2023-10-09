@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCoin } from '../../slices/ChartCoinSlice';
+import { setCoin } from '../slices/ChartCoinSlice';
 
 function Searchbar() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ function Searchbar() {
       }
     };
 
-    // Attach the event listener
+    // Attach the event listener to the document
     document.addEventListener('mousedown', handleClickOutside);
 
     // Clean up the event listener on unmount
@@ -31,6 +31,7 @@ function Searchbar() {
 
   const handleOnChange = (value) => {
     setSearchValue(value);
+    // Filter the list of coins based on the search input
     const filteredCoins = CoinList.filter((coin) =>
       coin.toLowerCase().includes(value.toLowerCase())
     );
@@ -39,7 +40,7 @@ function Searchbar() {
   };
 
   const handleSelectCoin = (coin) => {
-    
+    // Dispatch an action to set the selected coin in the Redux store
     dispatch(setCoin(coin));
     setSearchValue(coin); // Display the selected coin in the search input
     setFilteredResults([]); // Clear filtered results
@@ -48,13 +49,15 @@ function Searchbar() {
 
   return (
     <div className="relative w-full" ref={dropdownRef}>
+      {/* Search input */}
       <input
         type="search"
-        className="block w-full rounded border bg-white bg-clip-padding px-8 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out  focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 "
+        className="block w-full rounded border bg-white bg-clip-padding px-8 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 "
         placeholder="Search By Coin"
         value={searchValue}
         onChange={(e) => handleOnChange(e.target.value)}
       />
+      {/* Search icon */}
       <div className="absolute inset-y-0 left-0 pl-1  flex items-center pointer-events-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -76,6 +79,7 @@ function Searchbar() {
       {dropdownOpen && (
         <div className="absolute z-10 h-44 scrollbar-thin overflow-scroll mt-2 left-0 w-full bg-white border border-neutral-300 rounded shadow-lg">
           {filteredResults.map((result) => (
+            // Display each filtered result as a clickable option
             <div
               key={result}
               className="px-4 py-2 hover:bg-blue-600 hover:text-white cursor-pointer"
