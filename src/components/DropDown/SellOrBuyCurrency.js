@@ -6,19 +6,18 @@ function SellCurrency() {
   const dispatch = useDispatch();
 
   const exchangeData = useSelector((state) => state.ExchangeRates.rates);
-  console.log("exchangeData",exchangeData)
+  console.log("exchangeData", exchangeData)
   const ratesData = Object(exchangeData.rates)
-  console.log("ratesDataa",ratesData)
-  
-const ratesDataArr = Object.keys(ratesData).map(key => ratesData[key])
+  console.log("ratesDataa", ratesData)
 
-console.log("ratesDataArr",ratesDataArr);
+  const ratesDataArr = Object.keys(ratesData).map(key => ratesData[key])
+  console.log("ratesDataArr", ratesDataArr);
   // State variables for selected coins, amount, exchange result, and error handling
   const [sellCoin, setSellCoin] = useState(''); // Selected coin for selling
   const [sellAmount, setSellAmount] = useState(''); // Amount to sell
   const [buyCoin, setBuyCoin] = useState(''); // Selected coin for buying
   const [exchangeResult, setExchangeResult] = useState('');
-  const [error, setError] = useState('');
+
 
   // Fetch exchange rates when the component mounts
   useEffect(() => {
@@ -27,25 +26,10 @@ console.log("ratesDataArr",ratesDataArr);
 
   // Handle the exchange process
   const handleExchange = () => {
-    setError(''); // Clear any previous error message
 
-    // Validate input
-    if (!sellCoin || !buyCoin || !sellAmount || isNaN(sellAmount)) {
-      setError('Invalid input');
-      setExchangeResult('');
-      return;
-    }
-
-    // Check if selected coins are valid currencies
-    if (!sellCoin || !buyCoin) {
-      setError('Invalid currency selection');
-      setExchangeResult('');
-      return;
-    }
-
-    const exchangedAmount = (sellAmount * sellCoin) /buyCoin;
+    const exchangedAmount = (sellAmount * sellCoin) / buyCoin;
     // Display the result
-    setExchangeResult(`Exchange Rate = ${exchangedAmount.toFixed(2)} ${buyCoin}`);
+    setExchangeResult(`${exchangedAmount.toFixed(2)} ${buyCoin}`);
   };
 
   return (
@@ -73,7 +57,7 @@ console.log("ratesDataArr",ratesDataArr);
               </option>
             ))}
           </select>
-         
+
         </div>
         {/* Input for entering the amount to sell */}
         <div>
@@ -108,19 +92,15 @@ console.log("ratesDataArr",ratesDataArr);
             ))}
           </select>
         </div>
-        {/* Display the exchange result */}
-        <div>
-          {/* Error and Exchange result */}
-      {error && (
-        <div className="text-center">
-          <p className="text-red-500 font-bold">{error}</p>
-        </div>
-      )}
-      {exchangeResult && (
-        <div className="text-center">
-          <p className=" ">{exchangeResult}</p>
-        </div>
-      )}
+
+        <div className="mx-2 border border-gray-300 rounded text-gray-600 h-10 pl-2 w-28">
+
+          {/* Display the exchange result */}
+          {exchangeResult && (
+            <div className="text-center text-sm">
+              <p className=" ">{exchangeResult.toLocaleString()}</p>
+            </div>
+          )}
         </div>
       </div>
       {/* Button for initiating the exchange */}
@@ -131,7 +111,7 @@ console.log("ratesDataArr",ratesDataArr);
         >
           Exchange
         </button>
-      </div>      
+      </div>
     </div>
   );
 }

@@ -1,10 +1,8 @@
 # Crypto Currency Dashboard
 
-![Crypto Currency Dashboard](dashboard-screenshot.png)
-
 ## Netlify App Link
 
-(https://crypto-app-somya-bhardwaj.netlify.app.com)
+(https://crypto-app-somya-bhardwaj.netlify.app)
 
 
 ## Table of Contents
