@@ -5,10 +5,14 @@ import fetchExchangeRates from '../../slices/api/ExchangeRatesApi';
 function SellCurrency() {
   const dispatch = useDispatch();
 
-  // Fetch market data and exchange rates from Redux state
-  const marketData = useSelector((state) => state.marketData.marketData);
   const exchangeData = useSelector((state) => state.ExchangeRates.rates);
+  console.log("exchangeData",exchangeData)
+  const ratesData = Object(exchangeData.rates)
+  console.log("ratesDataa",ratesData)
+  
+const ratesDataArr = Object.keys(ratesData).map(key => ratesData[key])
 
+console.log("ratesDataArr",ratesDataArr);
   // State variables for selected coins, amount, exchange result, and error handling
   const [sellCoin, setSellCoin] = useState(''); // Selected coin for selling
   const [sellAmount, setSellAmount] = useState(''); // Amount to sell
@@ -33,19 +37,15 @@ function SellCurrency() {
     }
 
     // Check if selected coins are valid currencies
-    if (!exchangeData.rates[sellCoin] || !exchangeData.rates[buyCoin]) {
+    if (!sellCoin || !buyCoin) {
       setError('Invalid currency selection');
       setExchangeResult('');
       return;
     }
 
-    // Calculate the exchanged amount
-    const sellValue = exchangeData.rates[sellCoin].value;
-    const buyValue = exchangeData.rates[buyCoin].value;
-    const exchangedAmount = (sellAmount * sellValue) / buyValue;
-
+    const exchangedAmount = (sellAmount * sellCoin) /buyCoin;
     // Display the result
-    setExchangeResult(`${sellAmount} ${sellCoin} = ${exchangedAmount.toFixed(2)} ${buyCoin}`);
+    setExchangeResult(`Exchange Rate = ${exchangedAmount.toFixed(2)} ${buyCoin}`);
   };
 
   return (
@@ -67,8 +67,8 @@ function SellCurrency() {
             onChange={(e) => setSellCoin(e.target.value)}
           >
             <option value="">Select Coin</option>
-            {marketData.map((Coin) => (
-              <option key={Coin.id} value={Coin.symbol}>
+            {ratesDataArr.map((Coin) => (
+              <option key={Coin.name} value={Coin.value}>
                 {Coin.name}
               </option>
             ))}
@@ -101,8 +101,8 @@ function SellCurrency() {
             onChange={(e) => setBuyCoin(e.target.value)}
           >
             <option value="">Select Coin</option>
-            {marketData.map((Coin) => (
-              <option key={Coin.id} value={Coin.symbol}>
+            {ratesDataArr.map((Coin) => (
+              <option key={Coin.name} value={Coin.value}>
                 {Coin.name}
               </option>
             ))}
@@ -110,7 +110,17 @@ function SellCurrency() {
         </div>
         {/* Display the exchange result */}
         <div>
-          <p className="w-20 mx-4 p-1 border rounded">exchange</p>
+          {/* Error and Exchange result */}
+      {error && (
+        <div className="text-center">
+          <p className="text-red-500 font-bold">{error}</p>
+        </div>
+      )}
+      {exchangeResult && (
+        <div className="text-center">
+          <p className=" ">{exchangeResult}</p>
+        </div>
+      )}
         </div>
       </div>
       {/* Button for initiating the exchange */}
@@ -121,19 +131,7 @@ function SellCurrency() {
         >
           Exchange
         </button>
-      </div>
-
-      {/* Error and Exchange result */}
-      {error && (
-        <div className="text-center">
-          <p className="text-red-500 font-bold">{error}</p>
-        </div>
-      )}
-      {exchangeResult && (
-        <div className="text-center">
-          <p className="text-xl font-bold mt-4">{exchangeResult}</p>
-        </div>
-      )}
+      </div>      
     </div>
   );
 }
